@@ -5,8 +5,9 @@
  */
 
 
-use wgmv\AdminExtensionExample\Controller\Admin\OaAdminExtExampleController;
-use wgmv\AdminExtensionExample\Controller\Admin\OaAdminExtExampleList;
+use wgmv\AdminExtensionExample\Controllers\Admin\OaAdminExtExampleController;
+use wgmv\AdminExtensionExample\Controllers\Admin\OaAdminExtExampleList;
+use wgmv\AdminExtensionExample\Controllers\Admin\OaAdminExtExampleSingleController;
 
 $sMetadataVersion = '2.1';
 
@@ -33,11 +34,13 @@ $aModule = [
     ],
     'controllers' => [
         'oaadminext_example_calc' => OaAdminExtExampleController::class,
-        'oaadminext_example_calc_list' => OaAdminExtExampleList::class
+        'oaadminext_example_calc_list' => OaAdminExtExampleList::class,
+        'oaadminext_example_calc_single' => OaAdminExtExampleSingleController::class,
     ],
     'templates' => [
         'oaadminext_test_calc.tpl' => 'wgmv/AdminExtensionExample/views/admin/tpl/oaadminext_test_calc.tpl',
         'oaadminext_test_calc_list.tpl' => 'wgmv/AdminExtensionExample/views/admin/tpl/oaadminext_test_calc_list.tpl',
+        'oaadminext_test_calc_single.tpl' => 'wgmv/AdminExtensionExample/views/admin/tpl/oaadminext_test_calc_single.tpl',
     ],
     'blocks' => [
         [
