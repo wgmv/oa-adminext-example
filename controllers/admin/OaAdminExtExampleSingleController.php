@@ -4,6 +4,9 @@
 namespace wgmv\AdminExtensionExample\Controllers\Admin;
 
 
+use OxidEsales\Eshop\Application\Model\Order;
+use OxidEsales\Eshop\Core\Model\ListModel;
+
 class OaAdminExtExampleSingleController extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController
 {
 
@@ -11,11 +14,22 @@ class OaAdminExtExampleSingleController extends \OxidEsales\Eshop\Application\Co
 
     /**
      * Get Paymorrow Error Log contents
-     *
-     * @return float - result of calc
      */
-    public function calc() : float
+    public function getOrdersPerDay() : ListModel
     {
-        return 1+2;
+        $sql = "SELECT
+                     SUBSTRING(oxorderdate, 1, 10) as oxorderdate,
+                     COUNT(*) as orderamount,
+                     SUM(OXTOTALBRUTSUM) as totalbrutsum
+                FROM
+                    oxorder
+                GROUP BY 
+                    SUBSTRING(oxorderdate, 1, 10)";
+
+        $orderList = oxNew(ListModel::class);
+        $orderList->init(Order::class);
+        $orderList->selectString($sql);
+
+        return $orderList;
     }
 }

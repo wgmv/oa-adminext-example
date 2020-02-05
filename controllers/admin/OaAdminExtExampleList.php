@@ -19,13 +19,4 @@ class OaAdminExtExampleList extends \OxidEsales\Eshop\Application\Controller\Adm
 //        var_dump('yo ho mexico');
 //    }
 
-    /**
-     * Get Paymorrow Error Log contents
-     *
-     * @return float - result of calc
-     */
-    public function calc() : float
-    {
-        return 1+2;
-    }
 }

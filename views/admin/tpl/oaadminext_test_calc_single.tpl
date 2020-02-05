@@ -45,7 +45,28 @@
 
 <h1>[{oxmultilang ident="OA_ADMINEXTEXAMPLE"}]</h1>
 
-[{$oView->calc()}]
+[{assign var=orderList value=$oView->getOrdersPerDay()}]
+
+[{if $orderList}]
+    <table border="1">
+        <thead>
+            <tr>
+                <th>[{oxmultilang ident="GENERAL_DATE"}]</th>
+                <th>[{oxmultilang ident="amount"}]</th>
+                <th>[{oxmultilang ident="ORDER_ARTICLE_EBRUTTO"}]</th>
+            </tr>
+        </thead>
+        <tbody>
+        [{foreach from=$orderList item=order}]
+            <tr>
+                <td>[{$order->getFieldData('oxorderdate')}]</td>
+                <td>[{$order->getFieldData('orderamount')}]</td>
+                <td>[{$order->getFieldData('totalbrutsum')}]</td>
+            </tr>
+        [{/foreach}]
+        </tbody>
+    </table>
+[{/if}]
 
 [{include file="bottomnaviitem.tpl"}]
 
