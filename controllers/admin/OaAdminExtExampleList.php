@@ -1,5 +1,5 @@
 <?php
-namespace wgmv\AdminExtensionExample\Controller\Admin;
+namespace wgmv\AdminExtensionExample\Controllers\Admin;
 
 /**
  * Class OxpsPaymorrowAdminErrorLog
@@ -12,12 +12,12 @@ class OaAdminExtExampleList extends \OxidEsales\Eshop\Application\Controller\Adm
      *
      * @var string
      */
-    protected $_sThisTemplate = 'oaadminext_example_calc.tpl';
+    protected $_sThisTemplate = 'oaadminext_test_calc_list.tpl';
 
-    public function render()
-    {
-        var_dump('yo ho mexico');
-    }
+//    public function render()
+//    {
+//        var_dump('yo ho mexico');
+//    }
 
     /**
      * Get Paymorrow Error Log contents
